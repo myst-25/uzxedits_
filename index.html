@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of uzxedits_ — front-end developer & designer" />
+  <title>uzxedits_ — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="avatar">UZ</div>
+        <h1 class="logo">uzxedits_</h1>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container">
+      <div class="hero-grid">
+        <div>
+          <h2>Hello, I'm <span class="accent">uzxedits_</span></h2>
+          <p class="lead">Professional video editor crafting engaging, cinematic content for creators, brands, and businesses.</p>
+          <p class="muted">Specialized in YouTube, social media, promos, and storytelling through video.</p>
+          <p>
+            <a class="btn" href="#projects">See my edits</a>
+            <a class="btn btn-ghost" href="#contact">Request a video</a>
+          </p>
+        </div>
+        <aside class="hero-card">
+          <div class="avatar-large">UZ</div>
+          <p class="small muted">Available for freelance & contract work</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="container card">
+      <h3>About</h3>
+      <p>Short bio: I help creators and brands stand out with professional video editing, color grading, and motion graphics.</p>
+      <div class="split">
+        <div>
+          <p>I turn raw footage into compelling stories. My workflow is fast, collaborative, and focused on delivering high-impact edits for YouTube, Instagram, TikTok, and commercial projects.</p>
+        </div>
+        <div>
+          <ul>
+            <li><strong>Skills:</strong> Video editing, color grading, motion graphics, sound design</li>
+            <li><strong>Tools:</strong> Adobe Premiere Pro, After Effects, DaVinci Resolve, Final Cut Pro</li>
+            <li><strong>Contact:</strong> uzxedits.business@email.com</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h3>Featured Edits</h3>
+      <div class="projects-grid">
+        <article class="project">
+          <div class="project-media"></div>
+          <div class="project-body">
+            <h4>YouTube Vlog Transformation</h4>
+            <p>Turned hours of raw footage into a dynamic, story-driven vlog with custom transitions, music sync, and color grading.</p>
+            <a class="link" href="#">Watch on YouTube →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-media"></div>
+          <div class="project-body">
+            <h4>Brand Promo Video</h4>
+            <p>Produced a high-energy promo for a startup, including motion graphics, logo animation, and sound design.</p>
+            <a class="link" href="#">See promo →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-media"></div>
+          <div class="project-body">
+            <h4>Social Media Reels</h4>
+            <p>Created viral Instagram/TikTok reels with fast cuts, effects, and captions to boost engagement.</p>
+            <a class="link" href="#">View reel →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container card">
+      <h3>Contact</h3>
+      <p>Ready to level up your videos? For collaborations, business inquiries, or to request an edit, reach out below:</p>
+      <form id="contact-form">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Project Details</span>
+          <textarea name="message" rows="4" required placeholder="Describe your video, style, deadline, and goals..."></textarea>
+        </label>
+        <button type="submit" class="btn">Send Request</button>
+      </form>
+      <p class="note">(No backend included — this form is a placeholder. For urgent requests, email uzxedits.business@email.com)</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> uzxedits_. Built with care.</p>
+      <div class="social">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

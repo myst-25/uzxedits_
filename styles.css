@@ -1,0 +1,197 @@
+/* Modern portfolio styles (improved mobile + safe-area) */
+:root{
+  --bg:#0f1724; /* dark background */
+  --panel:#0b1220; /* card/panel */
+  --header-h:72px; /* header height (desktop) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --muted:#98a0b3;
+  --accent:#7c9cff;
+  --accent-2:#5eead4;
+  --glass: rgba(255,255,255,0.04);
+  --card-shadow: 0 6px 24px rgba(2,6,23,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', Segoe UI, Roboto, Arial, sans-serif;
+  background:linear-gradient(180deg,var(--bg),#071024 120%);
+  color:#e6eef7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+
+/* Header: include safe-area and fixed positioning */
+.site-header{backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));position:fixed;top:0;left:0;right:0;height:calc(var(--header-h) + var(--safe-top));padding-top:var(--safe-top);z-index:40}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+.brand{display:flex;align-items:center;gap:12px}
+.avatar{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#061025}
+.logo{margin:0;font-size:1.1rem}
+.nav-toggle{display:none;background:none;border:0;color:var(--muted);font-size:20px;padding:10px;border-radius:10px;line-height:1;touch-action:manipulation}
+.main-nav{display:flex;align-items:center}
+.main-nav a{margin-left:18px;color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+.main-nav a:hover{color:var(--accent)}
+
+.hero{padding:64px 24px}
+.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:center}
+.lead{font-size:1.05rem;color:#dff0ff}
+.muted{color:var(--muted)}
+.accent{color:var(--accent);font-weight:600}
+.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:var(--card-shadow);text-align:center}
+.avatar-large{width:96px;height:96px;border-radius:18px;margin:0 auto;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#061025;font-size:28px}
+
+/* Buttons & touch targets */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;background:var(--accent);color:#041025;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;margin-right:8px}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);min-height:44px}
+
+.card{background:var(--panel);border-radius:12px;padding:20px;margin:18px 0;box-shadow:var(--card-shadow)}
+.split{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+
+/* Make main the scroll container and force each section to fill the viewport */
+main{
+  margin-top: calc(var(--header-h) + var(--safe-top)); /* avoid header overlap */
+  height: calc(100vh - (var(--header-h) + var(--safe-top)));
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  touch-action: pan-y; /* allow vertical touch gestures */
+  overscroll-behavior-y: contain; /* reduce page bounce */
+  scroll-padding-top: calc(var(--header-h) + var(--safe-top) + 12px);
+}
+section{
+  min-height: calc(100vh - (var(--header-h) + var(--safe-top)));
+  display:flex;
+  flex-direction:column; /* stack children vertically */
+  align-items:center; /* center by default (override per-section below) */
+  scroll-snap-align: start;
+  padding: 40px 24px;
+}
+
+/* Headings inside sections should start at the left edge of the content */
+section > h3{
+  align-self:flex-start;
+  margin:0 0 12px 0;
+}
+
+/* For main content sections, left-align their children so text and forms don't sit side-by-side */
+section#about, section#projects, section#contact{
+  align-items:flex-start;
+}
+
+/* Constrain form width and make it stack nicely on mobile */
+#contact-form{
+  width:100%;
+  max-width:440px;
+  margin-top:18px;
+  background:rgba(255,255,255,0.01);
+  border-radius:12px;
+  box-shadow:0 2px 12px rgba(39,110,241,0.07);
+  padding:24px 18px;
+}
+#contact-form label{
+  display:block;
+  margin-bottom:16px;
+}
+#contact-form input,
+#contact-form textarea{
+  margin-top:6px;
+}
+
+/* reduce inner card margins since sections now fill the screen */
+.card{margin:12px 0}
+
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  margin-top:20px;
+}
+.project{
+  background:linear-gradient(180deg, rgba(39,110,241,0.04), transparent);
+  padding:0;
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 8px 30px rgba(2,6,23,0.35);
+  transition:transform 0.2s;
+}
+.project:hover{
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:0 16px 40px rgba(39,110,241,0.10);
+}
+.project-media{
+  height:140px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.2rem;
+  color:#fff;
+}
+.project-body{
+  padding:18px 16px 16px 16px;
+}
+.project h4{
+  margin:0 0 10px 0;
+  color:#fff;
+  font-size:1.15rem;
+}
+.link{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  margin-top:8px;
+  display:inline-block;
+}
+
+.site-footer{padding:18px calc(24px + var(--safe-bottom)) 24px;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.social a{color:var(--muted);margin-left:12px;text-decoration:none}
+
+form label{display:block;margin-bottom:10px}
+form input,form textarea{width:100%;padding:10px;border:1px solid rgba(255,255,255,0.04);border-radius:8px;background:transparent;color:inherit}
+.note{
+  font-size:0.95rem;
+  color:var(--muted);
+  margin-top:18px;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  /* Mobile nav: hidden by default, revealed when header has .open */
+  .main-nav{display:none;position:absolute;top:calc(100% + var(--safe-top));right:16px;left:16px;background:var(--panel);border-radius:12px;padding:12px;box-shadow:var(--card-shadow);flex-direction:column;gap:8px}
+  .site-header.open .main-nav{display:flex}
+  .nav-toggle{display:block}
+  .projects-grid{grid-template-columns:1fr}
+  .main-nav a{margin-left:0;padding:12px}
+}
+
+/* Accessible focus styles */
+:focus{outline:none}
+:focus-visible{outline:3px solid rgba(124,156,255,0.25);outline-offset:3px}
+
+/* Add more spacing below headings in all sections */
+section > h3 {
+  margin-bottom: 20px;
+}
+
+/* prefer-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto}
+}
+
+/* Add spacing between contact description and form */
+section#contact > p {
+  margin-bottom: 24px;
+}
