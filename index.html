@@ -2,126 +2,334 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of uzxedits_ — front-end developer & designer" />
-  <title>uzxedits_ — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="UZxedits_ - Professional Video Editor from Hyderabad. Creating stunning visual content with expert color grading, motion graphics, and cinematic storytelling." />
+  <meta name="keywords" content="video editor, Hyderabad, motion graphics, color grading, video editing services, social media content, professional editing" />
+  <meta name="author" content="uzxedits_" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  
+  <!-- Open Graph meta tags for social sharing -->
+  <meta property="og:title" content="UZxedits_ - Professional Video Editor" />
+  <meta property="og:description" content="Creating stunning visual content with expert color grading, motion graphics, and cinematic storytelling." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uzxedits.com" />
+  <meta property="og:image" content="assets/images/profile.jpg" />
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UZxedits_ - Professional Video Editor" />
+  <meta name="twitter:description" content="Creating stunning visual content with expert color grading, motion graphics, and cinematic storytelling." />
+  <meta name="twitter:image" content="assets/images/profile.jpg" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
+  
+  <title>UZxedits_ — Professional Video Editor Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <div class="avatar">UZ</div>
-        <h1 class="logo">uzxedits_</h1>
-      </div>
       <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section id="hero" class="hero container">
-      <div class="hero-grid">
-        <div>
-          <h2>Hello, I'm <span class="accent">uzxedits_</span></h2>
-          <p class="lead">Professional video editor crafting engaging, cinematic content for creators, brands, and businesses.</p>
-          <p class="muted">Specialized in YouTube, social media, promos, and storytelling through video.</p>
-          <p>
-            <a class="btn" href="#projects">See my edits</a>
-            <a class="btn btn-ghost" href="#contact">Request a video</a>
-          </p>
+      <div class="hero-brand">
+        <h1 class="hero-logo"><span class="logo-uz">UZ</span><span class="logo-x">x</span><span class="logo-edits">edits</span><span class="blink">_</span></h1>
+        <p class="hero-tagline"><span class="tagline-pro">Pro</span>fessional Video Editor</p>
+        <p class="hero-description">Hey! I'm a professional video editor from Hyderabad specializing in cinematic storytelling, color grading, and motion graphics. Let's bring your vision to life!</p>
+        <div class="hero-buttons">
+          <a class="btn" href="#projects">See my edits</a>
+          <a class="btn btn-ghost" href="#contact">Request a video</a>
         </div>
-        <aside class="hero-card">
-          <div class="avatar-large">UZ</div>
-          <p class="small muted">Available for freelance & contract work</p>
-        </aside>
+      </div>
+      
+      <div class="video-timeline">
+        <div class="timeline-header">
+          <div class="timeline-controls">
+            <span class="timeline-btn" id="rewind">◀◀</span>
+            <span class="timeline-btn" id="prev">◀</span>
+            <span class="timeline-btn play-btn" id="playBtn">▶</span>
+            <span class="timeline-btn" id="next">▶</span>
+            <span class="timeline-btn" id="fastforward">▶▶</span>
+          </div>
+          <div class="timeline-info">
+            <span class="timeline-time" id="currentTime">00:00:00:00</span>
+            <span class="timeline-zoom">200%</span>
+          </div>
+        </div>
+        
+        <div class="timeline-ruler">
+          <div class="ruler-marks">
+            <span class="ruler-mark">00:00:00:00</span>
+            <span class="ruler-mark">00:00:15:00</span>
+            <span class="ruler-mark">00:00:30:00</span>
+            <span class="ruler-mark">00:00:45:00</span>
+            <span class="ruler-mark">00:01:00:00</span>
+            <span class="ruler-mark">00:01:15:00</span>
+            <span class="ruler-mark">00:01:30:00</span>
+            <span class="ruler-mark">00:01:45:00</span>
+            <span class="ruler-mark">00:02:00:00</span>
+          </div>
+        </div>
+        
+        <div class="timeline-tracks">
+          <div class="timeline-track">
+            <div class="track-header">
+              <span class="track-icon">🎬</span>
+              <span class="track-name">V1</span>
+              <div class="track-controls">
+                <span class="track-toggle">👁</span>
+                <span class="track-toggle">🔒</span>
+              </div>
+            </div>
+            <div class="track-content">
+              <div class="clip video-clip editable-clip" style="width: 120px; left: 50px;" data-start="50" data-duration="120">
+                <div class="clip-content">Main Edit</div>
+              </div>
+              <div class="clip video-clip editable-clip" style="width: 90px; left: 180px;" data-start="180" data-duration="90">
+                <div class="clip-content">B-Roll</div>
+              </div>
+              <div class="clip video-clip editable-clip" style="width: 140px; left: 280px;" data-start="280" data-duration="140">
+                <div class="clip-content">Color Grade</div>
+              </div>
+              <div class="clip video-clip editable-clip" style="width: 100px; left: 430px;" data-start="430" data-duration="100">
+                <div class="clip-content">Final Cut</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-track">
+            <div class="track-header">
+              <span class="track-icon">🎵</span>
+              <span class="track-name">A1</span>
+              <div class="track-controls">
+                <span class="track-toggle">👁</span>
+                <span class="track-toggle">🔒</span>
+              </div>
+            </div>
+            <div class="track-content">
+              <div class="clip audio-clip editable-clip" style="width: 200px; left: 50px;" data-start="50" data-duration="200">
+                <div class="clip-content">
+                  <div class="audio-waveform">
+                    <div class="waveform-bar" style="height: 60%"></div>
+                    <div class="waveform-bar" style="height: 80%"></div>
+                    <div class="waveform-bar" style="height: 40%"></div>
+                    <div class="waveform-bar" style="height: 90%"></div>
+                    <div class="waveform-bar" style="height: 70%"></div>
+                    <div class="waveform-bar" style="height: 50%"></div>
+                    <div class="waveform-bar" style="height: 85%"></div>
+                    <div class="waveform-bar" style="height: 45%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="clip audio-clip editable-clip" style="width: 150px; left: 260px;" data-start="260" data-duration="150">
+                <div class="clip-content">
+                  <div class="audio-waveform">
+                    <div class="waveform-bar" style="height: 50%"></div>
+                    <div class="waveform-bar" style="height: 70%"></div>
+                    <div class="waveform-bar" style="height: 30%"></div>
+                    <div class="waveform-bar" style="height: 60%"></div>
+                    <div class="waveform-bar" style="height: 80%"></div>
+                    <div class="waveform-bar" style="height: 40%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="clip audio-clip editable-clip" style="width: 120px; left: 420px;" data-start="420" data-duration="120">
+                <div class="clip-content">
+                  <div class="audio-waveform">
+                    <div class="waveform-bar" style="height: 65%"></div>
+                    <div class="waveform-bar" style="height: 45%"></div>
+                    <div class="waveform-bar" style="height: 75%"></div>
+                    <div class="waveform-bar" style="height: 55%"></div>
+                    <div class="waveform-bar" style="height: 35%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-track">
+            <div class="track-header">
+              <span class="track-icon">✨</span>
+              <span class="track-name">A2</span>
+              <div class="track-controls">
+                <span class="track-toggle">👁</span>
+                <span class="track-toggle">🔒</span>
+              </div>
+            </div>
+            <div class="track-content">
+              <div class="clip effect-clip editable-clip" style="width: 60px; left: 160px;" data-start="160" data-duration="60">
+                <div class="clip-content">Transition</div>
+              </div>
+              <div class="clip effect-clip editable-clip" style="width: 80px; left: 350px;" data-start="350" data-duration="80">
+                <div class="clip-content">VFX</div>
+              </div>
+              <div class="clip effect-clip editable-clip" style="width: 50px; left: 480px;" data-start="480" data-duration="50">
+                <div class="clip-content">Fade Out</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-playhead draggable-playhead" id="playhead" style="left: 220px;"></div>
       </div>
     </section>
 
-    <section id="about" class="container card">
-      <h3>About</h3>
-      <p>Short bio: I help creators and brands stand out with professional video editing, color grading, and motion graphics.</p>
-      <div class="split">
-        <div>
-          <p>I turn raw footage into compelling stories. My workflow is fast, collaborative, and focused on delivering high-impact edits for YouTube, Instagram, TikTok, and commercial projects.</p>
-        </div>
-        <div>
-          <ul>
-            <li><strong>Skills:</strong> Video editing, color grading, motion graphics, sound design</li>
-            <li><strong>Tools:</strong> Adobe Premiere Pro, After Effects, DaVinci Resolve, Final Cut Pro</li>
-            <li><strong>Contact:</strong> uzxedits.business@email.com</li>
-          </ul>
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-header">
+            <h2 class="section-title">About <span class="title-accent">UZxedits_</span></h2>
+            <p class="section-subtitle">Crafting visual stories through professional video editing</p>
+          </div>
+          
+          <div class="about-grid">
+            <div class="about-main">
+              <div class="about-card">
+                <div class="card-icon">🎬</div>
+                <h3>Professional Video Editor</h3>
+                <p>Based in Hyderabad, I specialize in transforming raw footage into compelling visual narratives. With expertise in color grading, motion graphics, and sound design, I help creators and brands tell their stories with maximum impact and professional polish.</p>
+                
+                <div class="stats-grid">
+                  <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Videos Edited</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Happy Clients</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Years Experience</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="about-sidebar">
+              <div class="skills-card">
+                <h4>💼 Skills & Expertise</h4>
+                <div class="skills-list">
+                  <span class="skill-tag">Video Editing</span>
+                  <span class="skill-tag">Color Grading</span>
+                  <span class="skill-tag">Motion Graphics</span>
+                  <span class="skill-tag">Sound Design</span>
+                  <span class="skill-tag">Visual Effects</span>
+                  <span class="skill-tag">YouTube Optimization</span>
+                  <span class="skill-tag">Social Media Content</span>
+                  <span class="skill-tag">Cinematic Storytelling</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="container">
-      <h3>Featured Edits</h3>
-      <div class="projects-grid">
-        <article class="project">
-          <div class="project-media"></div>
-          <div class="project-body">
-            <h4>YouTube Vlog Transformation</h4>
-            <p>Turned hours of raw footage into a dynamic, story-driven vlog with custom transitions, music sync, and color grading.</p>
-            <a class="link" href="#">Watch on YouTube →</a>
+    <section id="projects" class="video-slideshow-section">
+      <div class="slideshow-header">
+        <h3>Featured Edits</h3>
+        <div class="slide-counter">
+          <span class="current-slide">1</span> / <span class="total-slides">4</span>
+        </div>
+      </div>
+      
+      <div class="video-slideshow-container">
+        <div class="video-slides">
+          <div class="video-slide active">
+            <div class="video-card">
+              <video controls preload="metadata" playsinline webkit-playsinline>
+                <source src="assets/videos/video1.mp4" type="video/mp4">
+                <p>Your browser does not support the video tag. <a href="assets/videos/video1.mp4">Download the video</a></p>
+              </video>
+            </div>
           </div>
-        </article>
 
-        <article class="project">
-          <div class="project-media"></div>
-          <div class="project-body">
-            <h4>Brand Promo Video</h4>
-            <p>Produced a high-energy promo for a startup, including motion graphics, logo animation, and sound design.</p>
-            <a class="link" href="#">See promo →</a>
+          <div class="video-slide">
+            <div class="video-card">
+              <video controls preload="metadata" playsinline webkit-playsinline>
+                <source src="assets/videos/video2.mp4" type="video/mp4">
+                <p>Your browser does not support the video tag. <a href="assets/videos/video2.mp4">Download the video</a></p>
+              </video>
+            </div>
           </div>
-        </article>
 
-        <article class="project">
-          <div class="project-media"></div>
-          <div class="project-body">
-            <h4>Social Media Reels</h4>
-            <p>Created viral Instagram/TikTok reels with fast cuts, effects, and captions to boost engagement.</p>
-            <a class="link" href="#">View reel →</a>
+          <div class="video-slide">
+            <div class="video-card">
+              <video controls preload="metadata" playsinline webkit-playsinline>
+                <source src="assets/videos/video3.mp4" type="video/mp4">
+                <p>Your browser does not support the video tag. <a href="assets/videos/video3.mp4">Download the video</a></p>
+              </video>
+            </div>
           </div>
-        </article>
+
+          <div class="video-slide">
+            <div class="video-card">
+              <video controls preload="metadata" playsinline webkit-playsinline>
+                <source src="assets/videos/video4.mp4" type="video/mp4">
+                <p>Your browser does not support the video tag. <a href="assets/videos/video4.mp4">Download the video</a></p>
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="slide-nav prev-slide" aria-label="Previous video">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        
+        <button class="slide-nav next-slide" aria-label="Next video">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Slide Indicators -->
+        <div class="slide-indicators">
+          <button class="indicator active" data-slide="0" aria-label="Go to video 1"></button>
+          <button class="indicator" data-slide="1" aria-label="Go to video 2"></button>
+          <button class="indicator" data-slide="2" aria-label="Go to video 3"></button>
+          <button class="indicator" data-slide="3" aria-label="Go to video 4"></button>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="container card">
-      <h3>Contact</h3>
-      <p>Ready to level up your videos? For collaborations, business inquiries, or to request an edit, reach out below:</p>
-      <form id="contact-form">
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          <span>Project Details</span>
-          <textarea name="message" rows="4" required placeholder="Describe your video, style, deadline, and goals..."></textarea>
-        </label>
-        <button type="submit" class="btn">Send Request</button>
-      </form>
-      <p class="note">(No backend included — this form is a placeholder. For urgent requests, email uzxedits.business@email.com)</p>
-    </section>
   </main>
+
+  <!-- Minimal Contact / Social Bar -->
+  <section id="contact-mini" class="contact-mini" aria-label="Contact and social links">
+  <h3 class="contact-mini-title">Contact me</h3>
+  <div class="contact-mini-inner">
+      <a class="contact-chip ig" href="https://www.instagram.com/imrannn.09/" target="_blank" rel="noopener" aria-label="Imran (personal Instagram)">
+        <span class="icon">📷</span><span class="label">Imran</span>
+      </a>
+      <a class="contact-chip ig" href="https://www.instagram.com/uzxedits_/" target="_blank" rel="noopener" aria-label="uzxedits_ Instagram page">
+        <span class="icon">🎞️</span><span class="label">uzxedits_</span>
+      </a>
+      <a class="contact-chip mail" href="mailto:mohdimranuzair99@gmail.com" aria-label="Email Imran">
+        <span class="icon">✉️</span><span class="label">Email</span>
+      </a>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> uzxedits_. Built with care.</p>
+      <p>© <span id="year"></span> UZxedits_. Crafting visual stories with passion.</p>
       <div class="social">
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
+        <a href="https://instagram.com/uzxedits_" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@uzxedits_" target="_blank">YouTube</a>
+        <a href="mailto:uzxedits.business@gmail.com">Email</a>
       </div>
     </div>
   </footer>
